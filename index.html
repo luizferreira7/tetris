@@ -4,17 +4,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TETRIS</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
-    <link rel="icon" href="assets/icone.png">
+    <link rel="icon" href="assets/icone.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div id="main" class="main">
       <canvas id="tabuleiro" class="tabuleiro"></canvas>
       <div id="menu" class="menu">
-        <img src="assets/icone.png" width="300" height="auto">
-        <h3>Pontuação: <span id="pontuacao">0</span></h3>
-        <h3>Linhas: <span id="linhas">0</span></h3>
+        <img src="assets/icone.png" width="300" height="auto" />
+        <div class="stats">
+          <h3>Pontuação: <span id="pontuacao">0</span></h3>
+          <h3>Linhas: <span id="linhas">0</span></h3>
+        </div>
         <button onclick="iniciar()" id="jogar" class="iniciar-jogo">
-          <img width="200" id="botao-iniciar" height="auto" src="assets/jogar.png">
+          <img
+            width="200"
+            id="botao-iniciar"
+            height="auto"
+            src="assets/jogar.png"
+          />
         </button>
       </div>
     </div>
