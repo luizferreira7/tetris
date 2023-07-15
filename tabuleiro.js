@@ -14,8 +14,8 @@ class Tabuleiro {
   }
 
   isJogadaValida(t) {
-    return t.formato.every((row, dy) => {
-      return row.every((value, dx) => {
+    return t.formato.every((linha, dy) => {
+      return linha.every((value, dx) => {
         let x = t.x + dx;
         let y = t.y + dy;
         return (
@@ -40,6 +40,32 @@ class Tabuleiro {
 
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
+    this.desenha();
+  }
+
+  fixaTetromino() {
+    this.tetromino.formato.forEach((linha, y) => {
+      linha.forEach((value, x) => {
+        if (value > 0) {
+          this.matriz[y + this.tetromino.y][x + this.tetromino.x] = value;
+        }
+      });
+    });
+  }
+
+  desenhaTabuleiro() {
+    this.matriz.forEach((linha, y) => {
+      linha.forEach((value, x) => {
+        if (value > 0) {
+          this.ctx.fillStyle = CORES[value];
+          this.ctx.fillRect(x, y, 1, 1);
+        }
+      });
+    });
+  }
+
+  desenha() {
     this.tetromino.desenha();
+    this.desenhaTabuleiro();
   }
 }

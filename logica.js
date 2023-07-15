@@ -35,6 +35,13 @@ function jogadas(key, tetromino) {
 
     case KEY.DOWN:
       tetromino.y += 1;
+      if (!tabuleiro.isJogadaValida(tetromino)) {
+        tetromino.y -= 1;
+        tabuleiro.fixaTetromino();
+        tabuleiro.tetromino = new Tetromino(ctx, mochila.getIndex());
+        tabuleiro.desenha();
+      }
+      
       break;
 
     case KEY.SPACE:
@@ -58,7 +65,7 @@ function rotacao(formato) {
   }
 
   // Inverte as linhas
-  formato.forEach(row => row.reverse());
+  formato.forEach(linha => linha.reverse());
 
   return formato;
 }
@@ -91,9 +98,10 @@ function jogar() {
     jogoIniciado = true;
 
     let tetromino = new Tetromino(ctx, mochila.getIndex());
-    tetromino.desenha();
 
     tabuleiro.tetromino = tetromino;
+
+    tabuleiro.desenha();
   } else {
     botao.innerText = "Jogar";
     jogoIniciado = false;
