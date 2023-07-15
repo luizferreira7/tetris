@@ -8,7 +8,7 @@ class Tetromino {
   proximaPeca(index) {
     this.formato = TETROMINOS[index];
     this.cor = CORES[index];
-    this.x = 3;
+    this.x = 4;
     this.y = 0;
   }
 

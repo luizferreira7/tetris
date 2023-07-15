@@ -1,12 +1,15 @@
 class Tabuleiro {
-  constructor(ctx) {
+  constructor(ctx, linhas, pontuacao) {
     this.ctx = ctx;
     this.reiniciar();
+    this.linhas = linhas;
+    this.pontuacao = pontuacao;
   }
 
   reiniciar() {
     this.matriz = this.iniciaMatrizComZeros();
-    this.ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = CORES[0];
+    ctx.fillRect(0, 0, canvas.width, canvas.height);  
   }
 
   iniciaMatrizComZeros() {
@@ -37,10 +40,6 @@ class Tabuleiro {
   mover(t) {
     this.tetromino.x = t.x;
     this.tetromino.y = t.y;
-
-    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-
-    this.desenha();
   }
 
   fixaTetromino() {
@@ -51,25 +50,47 @@ class Tabuleiro {
         }
       });
     });
+    this.eliminaLinhas();
   }
 
   desenhaTabuleiro() {
     this.matriz.forEach((linha, y) => {
       linha.forEach((value, x) => {
-        if (value > 0) {
-          this.ctx.fillStyle = CORES[value];
-          this.ctx.fillRect(x, y, 1, 1);
-        }
+        this.ctx.fillStyle = CORES[value];
+        this.ctx.fillRect(x, y, 1, 1);
       });
     });
   }
 
   desenha() {
-    this.tetromino.desenha();
     this.desenhaTabuleiro();
+    this.tetromino.desenha();
   }
 
   existeJogadaValida() {
     return this.isJogadaValida(this.tetromino);
+  }
+
+  eliminaLinhas() {
+    let l = this.linhas.innerText;
+    let p = this.pontuacao.innerText;
+
+    let novaslinhas = 0;
+
+    this.matriz.forEach((linha, y) => {
+      if (linha.every((value) => value > 0)) {
+        l++;
+        novaslinhas++;
+
+        this.matriz.splice(y, 1);
+
+        this.matriz.unshift(Array(COLUNAS).fill(0));
+      }
+    });
+
+    p += (l - novaslinhas) * novaslinhas * 10;
+
+    this.pontuacao.innerText = p;
+    this.linhas.innerText = l;
   }
 }

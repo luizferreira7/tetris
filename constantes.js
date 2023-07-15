@@ -2,7 +2,7 @@ const COLUNAS = 10;
 const LINHAS = 20;
 const TAMANHO = 30;
 
-const CORES = ["none", "red", "blue", "green", "purple", "yellow", "pink", "orange"];
+const CORES = ["rgb(42, 37, 113)", "cyan", "rgb(200, 11, 137)", "rgb(97, 227, 101)", "rgb(203, 97, 227)", "yellow", "red", "orange"];
 
 const TETROMINOS = [
   [],
