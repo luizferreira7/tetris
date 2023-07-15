@@ -1,18 +1,18 @@
 html {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .main {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .tabuleiro {
-    border: solid 2px;
+  border: solid 2px;
 }
 
 .menu {
-    display: grid;
-    padding: 2em;
+  display: grid;
+  padding: 2em;
 }
