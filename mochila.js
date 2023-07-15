@@ -14,7 +14,7 @@ class Mochila {
   }
 
   getTetrominos() {
-    return [0, 1, 2, 3, 4, 5, 6];
+    return [1, 2, 3, 4, 5, 6, 7];
   }
 
   reiniciar() {
