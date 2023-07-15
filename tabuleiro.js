@@ -68,4 +68,8 @@ class Tabuleiro {
     this.tetromino.desenha();
     this.desenhaTabuleiro();
   }
+
+  existeJogadaValida() {
+    return this.isJogadaValida(this.tetromino);
+  }
 }

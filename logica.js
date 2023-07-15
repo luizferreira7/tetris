@@ -17,6 +17,7 @@ let pontuacao = 0;
 let linhas = 0;
 
 let requestId = null;
+let timer = { inicio: 0, decorrido: 0, delay: 800 };
 
 function addEventListener() {
   document.removeEventListener("keydown", handleKeyPress);
@@ -87,6 +88,8 @@ function reiniciar() {
   linhas = 0;
   tabuleiro.reiniciar();
   mochila.reiniciar();
+  botao.innerText = "Jogar";
+  jogoIniciado = false;
 }
 
 function jogar() {
@@ -101,9 +104,37 @@ function jogar() {
 
     tabuleiro.tetromino = tetromino;
 
-    tabuleiro.desenha();
-  } else {
-    botao.innerText = "Jogar";
-    jogoIniciado = false;
+    animate();
   }
+}
+
+function cair() {
+  tabuleiro.tetromino.y += 1;
+
+    if (!tabuleiro.isJogadaValida(tabuleiro.tetromino)) {
+      tabuleiro.tetromino.y -= 1;
+      tabuleiro.fixaTetromino();
+      tabuleiro.tetromino = new Tetromino(ctx, mochila.getIndex());
+    } else {
+      tabuleiro.mover(tabuleiro.tetromino);
+    }
+}
+
+function animate(now = 0) {
+  timer.decorrido = now - timer.inicio;
+
+  if (timer.decorrido > timer.delay) {
+    this.cair();
+    timer.inicio = now;
+  }
+
+  if (!tabuleiro.existeJogadaValida()) {
+    reiniciar();
+    return;
+  }
+
+  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
+  tabuleiro.desenha();
+  requestId = requestAnimationFrame(animate);
 }
