@@ -73,14 +73,13 @@ class Tabuleiro {
   }
 
   eliminaLinhas() {
-    let l = this.linhas.innerText;
+    let l = Number(this.linhas.innerText);
     let p = Number(this.pontuacao.innerText);
 
-    let novaslinhas = -1;
+    let novaslinhas = 0;
 
     this.matriz.forEach((linha, y) => {
       if (linha.every((value) => value > 0)) {
-        l++;
         novaslinhas++;
 
         this.matriz.splice(y, 1);
@@ -89,9 +88,9 @@ class Tabuleiro {
       }
     });
 
-    p += (l - novaslinhas) * novaslinhas * 10;
+    p += (novaslinhas) * 10;
 
     this.pontuacao.innerText = p;
-    this.linhas.innerText = l;
+    this.linhas.innerText = l + novaslinhas;
   }
 }
