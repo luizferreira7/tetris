@@ -1,7 +1,18 @@
-const canvas = document.getElementById('tabuleiro');
-const ctx = canvas.getContext('2d');
+class Tabuleiro {
 
-ctx.canvas.width = COLUNAS * TAMANHO;
-ctx.canvas.height = LINHAS * TAMANHO;
-
-ctx.scale(TAMANHO, TAMANHO);
+    constructor(ctx) {
+        this.ctx = ctx;
+        this.reiniciar();
+    }
+  
+    reiniciar() {
+      this.matriz = this.iniciaMatrizComZeros();
+      this.ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+    
+    iniciaMatrizComZeros() {
+      return Array.from(
+        {length: LINHAS}, () => Array(COLUNAS).fill(0)
+      );
+    }
+  }
