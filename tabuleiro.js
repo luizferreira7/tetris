@@ -1,15 +1,22 @@
 class Tabuleiro {
-  constructor(ctx, linhas, pontuacao) {
+  constructor(ctx, ctxPrevia, linhas, pontuacao) {
     this.ctx = ctx;
-    this.reiniciar();
+    this.ctxPrevia = ctxPrevia;
+
     this.linhas = linhas;
     this.pontuacao = pontuacao;
+
+    this.reiniciar();
   }
 
   reiniciar() {
     this.matriz = this.iniciaMatrizComZeros();
+
     ctx.fillStyle = CORES[0];
     ctx.fillRect(0, 0, canvas.width, canvas.height);  
+
+    ctxPrevia.fillStyle = CORES[0];
+    ctxPrevia.fillRect(0, 0, canvas.width, canvas.height);
   }
 
   iniciaMatrizComZeros() {
@@ -63,9 +70,17 @@ class Tabuleiro {
     });
   }
 
+  desenhaTabuleiroPrevia() {
+    this.ctxPrevia.fillStyle = CORES[0];
+    ctxPrevia.fillRect(0, 0, canvas.width, canvas.height);
+  }
+
   desenha() {
     this.desenhaTabuleiro();
+    this.desenhaTabuleiroPrevia();
+
     this.tetromino.desenha();
+    this.previa.desenha();
   }
 
   existeJogadaValida() {

@@ -18,6 +18,11 @@ html {
   border: solid 2px;
 }
 
+.previa {
+  border: solid 2px;
+  justify-self: center;
+}
+
 .stats {
   display: grid;
   font-size: 24pt;
