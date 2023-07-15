@@ -6,6 +6,8 @@ html {
 .main {
   display: flex;
   justify-content: center;
+  align-content: center;
+  height: 100%;
 }
 
 .tabuleiro {
@@ -15,4 +17,14 @@ html {
 .menu {
   display: grid;
   padding: 2em;
+  color: rgb(42, 37, 113);
+  justify-content: center;
+}
+
+.iniciar-jogo {
+  width: fit-content;
+  height: fit-content;
+  background: transparent;
+  border: transparent;
+  justify-self: center;
 }

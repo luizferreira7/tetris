@@ -1,20 +1,19 @@
 const canvas = document.getElementById("tabuleiro");
 const ctx = canvas.getContext("2d");
 
-const botao = document.getElementById("jogar");
+const botao = document.getElementById("botao-iniciar");
+const linhas = document.getElementById("linhas");
+const pontuacao = document.getElementById("pontuacao");
 
 ctx.canvas.width = COLUNAS * TAMANHO;
 ctx.canvas.height = LINHAS * TAMANHO;
 
 ctx.scale(TAMANHO, TAMANHO);
 
-let tabuleiro = new Tabuleiro(ctx);
+let tabuleiro = new Tabuleiro(ctx, linhas);
 let mochila = new Mochila();
 
 let jogoIniciado = false;
-
-let pontuacao = 0;
-let linhas = 0;
 
 let requestId = null;
 let timer = { inicio: 0, decorrido: 0, delay: 800 };
@@ -40,7 +39,6 @@ function jogadas(key, tetromino) {
         tetromino.y -= 1;
         tabuleiro.fixaTetromino();
         tabuleiro.tetromino = new Tetromino(ctx, mochila.getIndex());
-        tabuleiro.desenha();
       }
       
       break;
@@ -84,20 +82,20 @@ function handleKeyPress(event) {
 }
 
 function reiniciar() {
-  pontuacao = 0;
-  linhas = 0;
+  pontuacao.innerText = 0;
+  linhas.innerText = 0;
   tabuleiro.reiniciar();
   mochila.reiniciar();
-  botao.innerText = "Jogar";
+  botao.src = "assets/jogar.png";
   jogoIniciado = false;
 }
 
-function jogar() {
+function iniciar() {
   this.reiniciar();
   this.addEventListener();
 
   if (!jogoIniciado) {
-    botao.innerText = "Reiniciar";
+    botao.src = "assets/restart.png";
     jogoIniciado = true;
 
     let tetromino = new Tetromino(ctx, mochila.getIndex());
