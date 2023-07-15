@@ -37,11 +37,30 @@ function jogadas(key, tetromino) {
       tetromino.y += 1;
       break;
 
+    case KEY.SPACE:
+      tetromino.formato = rotacao(tetromino.formato);
+      break;
+
     default:
       break;
   }
 
   return tetromino;
+}
+
+function rotacao(formato) {
+
+  // Faz a matriz transposta
+  for (let y = 0; y < formato.length; ++y) {
+    for (let x = 0; x < y; ++x) {
+      [formato[x][y], formato[y][x]] = [formato[y][x], formato[x][y]];
+    }
+  }
+
+  // Inverte as linhas
+  formato.forEach(row => row.reverse());
+
+  return formato;
 }
 
 function handleKeyPress(event) {
