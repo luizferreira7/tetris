@@ -40,6 +40,7 @@ class Tabuleiro {
   mover(t) {
     this.tetromino.x = t.x;
     this.tetromino.y = t.y;
+    this.tetromino.formato = t.formato;
   }
 
   fixaTetromino() {
@@ -73,9 +74,9 @@ class Tabuleiro {
 
   eliminaLinhas() {
     let l = this.linhas.innerText;
-    let p = this.pontuacao.innerText;
+    let p = Number(this.pontuacao.innerText);
 
-    let novaslinhas = 0;
+    let novaslinhas = -1;
 
     this.matriz.forEach((linha, y) => {
       if (linha.every((value) => value > 0)) {

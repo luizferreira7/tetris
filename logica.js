@@ -10,7 +10,7 @@ ctx.canvas.height = LINHAS * TAMANHO;
 
 ctx.scale(TAMANHO, TAMANHO);
 
-let tabuleiro = new Tabuleiro(ctx, linhas);
+let tabuleiro = new Tabuleiro(ctx, linhas, pontuacao);
 let mochila = new Mochila();
 
 let jogoIniciado = false;
@@ -44,7 +44,7 @@ function jogadas(key, tetromino) {
       break;
 
     case KEY.SPACE:
-      tetromino.formato = rotacao(tetromino.formato);
+      tetromino.formato = rotacao(tetromino);
       break;
 
     default:
@@ -54,19 +54,25 @@ function jogadas(key, tetromino) {
   return tetromino;
 }
 
-function rotacao(formato) {
+function rotacao(t) {
+
+  let tetromino_aux = JSON.parse(JSON.stringify(t));
 
   // Faz a matriz transposta
-  for (let y = 0; y < formato.length; ++y) {
+  for (let y = 0; y < tetromino_aux.formato.length; ++y) {
     for (let x = 0; x < y; ++x) {
-      [formato[x][y], formato[y][x]] = [formato[y][x], formato[x][y]];
+      [tetromino_aux.formato[x][y], tetromino_aux.formato[y][x]] = [tetromino_aux.formato[y][x], tetromino_aux.formato[x][y]];
     }
   }
 
   // Inverte as linhas
-  formato.forEach(linha => linha.reverse());
+  tetromino_aux.formato.forEach(linha => linha.reverse());
 
-  return formato;
+  if (tabuleiro.isJogadaValida(tetromino_aux)) {
+    return tetromino_aux.formato;
+  }
+
+  return t.formato;
 }
 
 function handleKeyPress(event) {
@@ -127,6 +133,7 @@ function animate(now = 0) {
   }
 
   if (!tabuleiro.existeJogadaValida()) {
+    console.log("oi")
     reiniciar();
     return;
   }
