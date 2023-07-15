@@ -16,6 +16,46 @@ let jogoIniciado = false;
 let pontuacao = 0;
 let linhas = 0;
 
+let requestId = null;
+
+function addEventListener() {
+    document.removeEventListener('keydown', handleKeyPress);
+    document.addEventListener('keydown', handleKeyPress);
+  }
+
+function jogadas(key, tetromino) {
+    switch (key) {
+        case KEY.LEFT:
+            tetromino.x -= 1;
+            break;
+
+        case KEY.RIGHT:
+            tetromino.x += 1;
+            break;
+        
+        case KEY.DOWN:
+            tetromino.y += 1;
+            break;
+    
+        default:
+            break;
+    }
+
+    return tetromino;
+}
+
+function handleKeyPress(event) {
+    if (Object.values(KEY).includes(event.keyCode)) {
+      event.preventDefault();
+
+      let t = jogadas(event.keyCode, {...tabuleiro.tetromino});
+      
+      if (tabuleiro.isJogadaValida(t)) {
+        tabuleiro.mover(t);
+      }
+    }
+  }
+
 function reiniciar() {
     pontuacao = 0;
     linhas = 0;
@@ -25,6 +65,7 @@ function reiniciar() {
 
 function jogar() {  
     this.reiniciar();
+    this.addEventListener();
 
     if (!jogoIniciado) {
         botao.innerText = 'Reiniciar'
