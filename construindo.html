@@ -1,0 +1,108 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TETRIS</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="icon" href="assets/icone.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav>
+      <a href="index.html">Pagina Inicial</a>
+      <a href="randomizer.html">Parte II</a>
+      <a href="seca.html">Parte III</a>
+      <a href="jogo.html">Jogar</a>
+    </nav>
+
+    <div class="main-text">
+        <div style="justify-content: center; display: flex;">
+          <img src="assets/icone.png" width="200" height="150">
+        </div>
+        <div style="justify-content: center; display: flex;">
+          <h1>Parte I - Construindo o Jogo</h1>
+        </div>
+        <div>
+            <h2 style="justify-content: center; display: flex;">Tabuleiro</h2>
+            <div style="display: flex; gap: 5em; justify-content: center;">
+                <img width="200" style="display: inline-block;" src="assets/tetris_exemplo.png">
+                <img width="20" height="30" style="display: inline-block; align-self: center;" src="assets/arrow.png">
+                <img width="200" src="assets/tabuleiro.png">
+            </div>
+        </div>
+        <div>
+            <h2 style="justify-content: center; display: flex;">Tetrominos</h2>
+            <div style="display: flex; gap: 5em; justify-content: center;">
+                <img width="300" style="display: inline-block;" src="assets/tetrominos_exemplo.png">
+                <img width="20" height="30" style="display: inline-block; align-self: center;" src="assets/arrow.png">
+                <img width="250" src="assets/tetrominos.png">
+            </div>
+        </div>
+        <div>
+            <h2 style="justify-content: center; display: flex;">Desenhando</h2>
+            <p>
+                Para desenhar e animar o jogo utilizamos o canvas.
+            </p>
+            <p> Uma ferramenta criada para delimitar uma área de renderização dinâmica de gráficos</p>
+            <p> No nosso caso estamos utilizando o contexto bidimensional já que esse destina-se à criação de imagens em duas dimensões.</p>
+            <p> Ele segue um sistema de eixos cartesianos x e y, cuja origem é no canto superior esquerdo da área de criação.</p>
+            <p> Assim a coordenada x cresce da esquerda para direita e y de cima para baixo.</p>
+            <div style="display: flex; justify-content: space-evenly; gap: 1em;">
+                <img width="400" style="display: inline-block; align-self: center;" src="assets/inicia_canvas.png">
+                <img width="300" src="assets/canvas_default_grid.png" >
+                <img width="400" style="display: inline-block; align-self: center;" src="assets/animate.png">
+            </div>
+            <div style="display: flex; gap: 5em; justify-content: center;">
+                <img width="350" style="display: inline-block;" src="assets/desenha_tabuleiro.png">
+                <img width="400" style="display: inline-block; align-self: center;" src="assets/desenha_tetromino.png">
+                <img width="300" style="display: inline-block; align-self: center;" src="assets/tetromino_2.png">
+            </div>
+        </div>
+        <div>
+            <h2 style="justify-content: center; display: flex;">Jogadas</h2>
+            <div style="display: flex; gap: 5em; justify-content: center;">
+                <img width="500" style="display: inline-block;" src="assets/jogadas.png">
+            </div>
+            <h3>Translação</h2>
+                <li>
+                    1. Quando o jogador pressionar a seta direita do teclado:
+                    Somamos +1 a componente x do tetromino
+                </li>
+                <li>
+                    2. Quando o jogador pressionar a seta para esquerda do telcado:
+                    Subtraimos -1 a componente x do tetromino.
+                </li>
+                <li>
+                    3. Quando o jogador pressionar a seta para baixo do teclado ou a cada 800 ms:
+                    Somamos +1 a componente y do tetromino.
+                </li>
+            <h3>Rotação</h2>
+                <li>
+                    Executado quando o jogador pressiona a tecla de espaço em seu teclado:
+                    Rotacionamos a matriz de formato do tetromino em 90 graus.
+                </li>
+                <p style="margin-left: 3em;">
+                    Para realizarmos a rotação podemos pensar em mais alguns conceitos da algebra linear:</p>
+                <p style="margin-left: 3em;">Ao invertermos as linhas da matriz transposta podemos alcançar a rotação que sejamos</p>
+                <div style="display: flex; gap: 5em; justify-content: center; margin-bottom: 2em;">
+                    <img width="800" style="display: inline-block;" src="assets/rotacao_teoria.png">
+                </div>
+                <div style="display: flex; gap: 5em; justify-content: center;">
+                    <img width="500" style="display: inline-block;" src="assets/rotacao.png">
+                </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="constantes.js"></script>
+    <script type="text/javascript" src="mochila.js"></script>
+    <script type="text/javascript" src="tetromino.js"></script>
+    <script type="text/javascript" src="tabuleiro.js"></script>
+    <script type="text/javascript" src="logica.js"></script>
+  </body>
+</html>
