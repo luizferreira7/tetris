@@ -7,11 +7,33 @@ html {
   height: 100%;
 }
 
+nav {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 1em;
+  font-size: larger;
+
+}
+
+p {
+  font-size: larger;
+}
+
+li {
+  font-size: larger;
+}
+
 .main {
   display: flex;
   justify-content: center;
   align-content: center;
-  height: 100%;
+  height: 90%;
+}
+
+.main-text {
+  display: grid;
+  justify-content: center;
+  overflow-y: auto;
 }
 
 .tabuleiro {
