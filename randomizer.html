@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TETRIS</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="icon" href="assets/icone.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav>
+      <a href="index.html">Pagina Inicial</a>
+      <a href="construindo.html">Parte I</a>
+      <a href="seca.html">Parte III</a>
+      <a href="jogo.html">Jogar</a>
+    </nav>
+
+    <div class="main-text">
+        <div style="justify-content: center; display: flex;">
+          <img src="assets/icone.png" width="200" height="150">
+        </div>
+        <div style="justify-content: center; display: flex;">
+          <h1>Parte II - O Sorteio das peças é enviesado?</h1>
+        </div>
+
+        <div style="display: grid; justify-content: center;">
+            <h2 style="justify-content: center; display: flex;">Cadeias Markov - Matriz de Transição</h2>
+            <div style="display: flex; gap: 5em; justify-content: center;">
+                <img width="500" style="display: inline-block;" src="assets/matriz_transicao.png">
+            </div>
+            <h3 style="justify-content: center; display: flex;">TETRIS 1984</h3>
+            <div style="display: flex; gap: 5em; justify-content: center; margin-bottom: 1em;">
+                <img width="400" style="display: inline-block;" src="assets/matriz_1984.png">
+                <img width="240" height="200" style="display: inline-block;" src="assets/tetris-1984.jpg">
+            </div>
+            <div style="display: flex; gap: 5em; justify-content: center;">
+                <img width="800" style="display: inline-block;" src="assets/probs_1984.png">
+            </div>
+            <h3 style="justify-content: center; display: flex;">TETRIS NES</h3>
+            <div style="display: flex; gap: 5em; justify-content: center; margin-bottom: 1em;">
+                <img width="240" height="200" style="display: inline-block;" src="assets/tetris-nes.jpg">
+                <img width="400" height="300" style="display: inline-block;" src="assets/matriz_nes.png">
+                <img width="240" height="200" style="display: inline-block;" src="assets/nes.png">
+            </div>
+            <div style="display: flex; gap: 5em; justify-content: center;">
+                <img width="800" style="display: inline-block;" src="assets/probs_nes.png">
+            </div>
+            <h3 style="justify-content: center; display: flex;">TETRIS GameBoy</h3>
+            <div style="display: flex; gap: 5em; justify-content: center; margin-bottom: 1em;">
+                <img width="260" height="180" style="display: inline-block;" src="assets/tetris-gb.jpg">
+                <img width="420" height="250" style="display: inline-block;" src="assets/matriz_gameboy.png">
+                <img width="200" height="auto" style="display: inline-block;" src="assets/gb.png">
+            </div>
+            <div style="display: flex; gap: 5em; justify-content: center;">
+                <img width="800" style="display: inline-block;" src="assets/probs_gb.png">
+            </div>
+            <h3 style="justify-content: center; display: flex; margin-top: 1em; margin-bottom: 1em;">Usando a matriz de transição</h3>
+            <div style="display: flex; gap: 5em; justify-content: center; margin-bottom: 1em;">
+                <img width="800" height="180" style="display: inline-block;" src="assets/matriz_k_gb.png">
+                <img width="200" style="display: inline-block;" src="assets/matriz_k_resultado.png">
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="constantes.js"></script>
+    <script type="text/javascript" src="mochila.js"></script>
+    <script type="text/javascript" src="tetromino.js"></script>
+    <script type="text/javascript" src="tabuleiro.js"></script>
+    <script type="text/javascript" src="logica.js"></script>
+  </body>
+</html>
