@@ -1,42 +1,72 @@
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TETRIS</title>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-    <link rel="icon" href="assets/icone.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div id="main" class="main">
-      <canvas id="tabuleiro" class="tabuleiro"></canvas>
-      <div id="menu" class="menu">
-        <img src="assets/icone.png" width="300" height="auto" />
-        <div class="stats">
-          <h3>Pontuação: <span id="pontuacao">0</span></h3>
-          <h3>Linhas: <span id="linhas">0</span></h3>
-        </div>
-        <canvas id="previa" class="previa"></canvas>
-        <button onclick="iniciar()" id="jogar" class="iniciar-jogo">
-          <img
-            width="200"
-            id="botao-iniciar"
-            height="auto"
-            src="assets/jogar.png"
-          />
-        </button>
-      </div>
-    </div>
 
-    <script type="text/javascript" src="constantes.js"></script>
-    <script type="text/javascript" src="mochila.js"></script>
-    <script type="text/javascript" src="tetromino.js"></script>
-    <script type="text/javascript" src="tabuleiro.js"></script>
-    <script type="text/javascript" src="logica.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TETRIS</title>
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <link rel="icon" href="assets/icone.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <nav>
+    <a href="index.html">Pagina Inicial</a>
+    <a href="construindo.html">Parte I</a>
+    <a href="randomizer.html">Parte II</a>
+    <a href="seca.html">Parte III</a>
+    <a href="jogo.html">Jogar</a>
+  </nav>
+
+  <div class="main-text">
+    <div style="justify-content: center; display: flex;">
+      <img src="assets/icone.png" width="350" height="250">
+    </div>
+    <div style="justify-content: center; display: flex;">
+      <h1>Introdução</h1>
+    </div>
+    <div style="display: flex; gap: 1em;">
+      <div style="display: inline-block;">
+        <p>
+          Neste projeto iremos analisar e recriar o jogo TETRIS, criado por Alexey Pajitnov em 1984, a partir da ótica da Algebra Linear.
+        </p>
+        <p>O jogo consiste em empilhar tetraminós que descem a tela de forma que completem linhas horizontais.</p>
+        <p>Quando uma linha se forma, ela se desintegra, as camadas superiores descem, e o jogador ganha pontos.</p>
+        <p>Quando a pilha de peças chega ao topo da tela, a partida se encerra.</p>
+      </div>
+      <img src="assets/tetris_exemplo.png" width="100">
+    </div>
+    <p>Objetivos:</p>
+    <li style="margin-bottom: 1em;">
+      Parte I - Construindo o TETRIS
+      <br>
+      <span style="margin-left: 3em;">
+        Veremos como o TETRIS pode ser criado e representado por conceitos de Algebra Linear.
+      </span>
+    </li>
+    <li style="margin-bottom: 1em;">
+      Parte II - O sorteio dos tetrominos é enviesado?
+      <br>
+      <span style="margin-left: 3em;">
+        Todo jogador em algum momento já se perguntou, será que o TETRIS sorteia as piores peças?
+      </span>
+    </li>
+    <li style="margin-bottom: 1em;">
+      Parte III - As "secas" de tetrominos são propositais?
+      <br>
+      <span style="margin-left: 3em;">
+        Veremos se o TETRIS cria algum tipo de "seca" de peças, ou seja, se algum tetromino demora a aparecer novamente.
+      </span>
+    </li>
+  </div>
+
+  <script type="text/javascript" src="constantes.js"></script>
+  <script type="text/javascript" src="mochila.js"></script>
+  <script type="text/javascript" src="tetromino.js"></script>
+  <script type="text/javascript" src="tabuleiro.js"></script>
+  <script type="text/javascript" src="logica.js"></script>
+</body>
+
 </html>

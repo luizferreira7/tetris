@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TETRIS</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="icon" href="assets/icone.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <nav>
+        <a href="index.html">Pagina Inicial</a>
+        <a href="construindo.html">Parte I</a>
+        <a href="randomizer.html">Parte II</a>
+        <a href="seca.html">Parte III</a>
+      </nav>
+    <div id="main" class="main">
+        <canvas id="tabuleiro" class="tabuleiro"></canvas>
+        <div id="menu" class="menu">
+          <img src="assets/icone.png" width="300" height="auto" />
+          <div class="stats">
+            <h3>Pontuação: <span id="pontuacao">0</span></h3>
+            <h3>Linhas: <span id="linhas">0</span></h3>
+          </div>
+          <canvas id="previa" class="previa"></canvas>
+          <button onclick="iniciar()" id="jogar" class="iniciar-jogo">
+            <img
+              width="200"
+              id="botao-iniciar"
+              height="auto"
+              src="assets/jogar.png"
+            />
+          </button>
+        </div>
+      </div>
+
+    <script type="text/javascript" src="constantes.js"></script>
+    <script type="text/javascript" src="mochila.js"></script>
+    <script type="text/javascript" src="tetromino.js"></script>
+    <script type="text/javascript" src="tabuleiro.js"></script>
+    <script type="text/javascript" src="logica.js"></script>
+</body>
+
+</html>
