@@ -22,7 +22,7 @@ let mochila = new Mochila();
 let jogoIniciado = false;
 
 let requestId = null;
-let timer = { inicio: 0, decorrido: 0, delay: 800 };
+let timer = { inicio: 0, decorrido: 0, delay: 600 };
 
 function addEventListener() {
   document.removeEventListener("keydown", handleKeyPress);
