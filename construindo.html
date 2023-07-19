@@ -52,48 +52,42 @@
             <p> No nosso caso estamos utilizando o contexto bidimensional já que esse destina-se à criação de imagens em duas dimensões.</p>
             <p> Ele segue um sistema de eixos cartesianos x e y, cuja origem é no canto superior esquerdo da área de criação.</p>
             <p> Assim a coordenada x cresce da esquerda para direita e y de cima para baixo.</p>
-            <div style="display: flex; justify-content: space-evenly; gap: 1em;">
-                <img width="400" style="display: inline-block; align-self: center;" src="assets/inicia_canvas.png">
-                <img width="300" src="assets/canvas_default_grid.png" >
-                <img width="400" style="display: inline-block; align-self: center;" src="assets/animate.png">
+            <div style="display: flex; justify-content: space-evenly; gap: 1em; margin-bottom: 1em;">
+                <img width="277" height="103" style="display: inline-block;" src="assets/tetromino.png" >
             </div>
-            <div style="display: flex; gap: 5em; justify-content: center;">
-                <img width="350" style="display: inline-block;" src="assets/desenha_tabuleiro.png">
-                <img width="400" style="display: inline-block; align-self: center;" src="assets/desenha_tetromino.png">
-                <img width="300" style="display: inline-block; align-self: center;" src="assets/tetromino_2.png">
+            <div style="display: flex; justify-content: space-evenly; gap: 1em;">
+                <img width="400" src="assets/canvas_default_grid.png" >
+            </div>
+            <div style="display: flex; justify-content: center;">
+                <img width="50" style="display: inline-block;" src="assets/formato.png" >
+                <img width="150" src="assets/desenha.png" >
             </div>
         </div>
         <div style="display: grid; justify-content: center;">
             <h2 style="justify-content: center; display: flex;">Jogadas</h2>
-            <div style="display: flex; gap: 5em; justify-content: center;">
-                <img width="500" style="display: inline-block;" src="assets/jogadas.png">
-            </div>
             <h3 style="justify-content: center; display: flex;">Translação</h3>
-                <li>
-                    1. Quando o jogador pressionar a seta direita do teclado:
-                    Somamos +1 a componente x do tetromino
-                </li>
-                <li>
-                    2. Quando o jogador pressionar a seta para esquerda do telcado:
-                    Subtraimos -1 a componente x do tetromino.
-                </li>
-                <li>
-                    3. Quando o jogador pressionar a seta para baixo do teclado ou a cada 800 ms:
-                    Somamos +1 a componente y do tetromino.
-                </li>
+            <div style="display: flex; gap: 5em; justify-content: center; margin-top: 1em;">
+                <img width="600" style="display: inline-block;" src="assets/jogadas.png">
+            </div>
             <h3 style="justify-content: center; display: flex;">Rotação</h3>
                 <li>
                     Executado quando o jogador pressiona a tecla de espaço em seu teclado:
-                    Rotacionamos a matriz de formato do tetromino em 90 graus.
                 </li>
+                <p style="margin-left: 3em;">
+                    Rotacionamos a matriz de formato do tetromino em 90 graus.
+                </p>
                 <p style="margin-left: 3em;">
                     Para realizarmos a rotação podemos pensar em mais alguns conceitos da algebra linear:</p>
                 <p style="margin-left: 3em;">Ao invertermos as linhas da matriz transposta podemos alcançar a rotação que sejamos</p>
                 <div style="display: flex; gap: 5em; justify-content: center; margin-bottom: 2em;">
                     <img width="800" style="display: inline-block;" src="assets/rotacao_teoria.png">
                 </div>
-                <div style="display: flex; gap: 5em; justify-content: center;">
-                    <img width="500" style="display: inline-block;" src="assets/rotacao.png">
+        </div>
+        <div style="display: grid; justify-content: center;">
+            <h2 style="justify-content: center; display: flex;">Colisao</h2>
+                <div style="display: flex; gap: 5em; justify-content: center; margin-bottom: 2em;">
+                    <img width="400" style="display: inline-block;" src="assets/colisao.png">
+                    <img width="500" style="display: inline-block;" src="assets/colisao_tabuleiro.png">
                 </div>
         </div>
     </div>
